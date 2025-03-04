@@ -1,0 +1,30 @@
+[package]
+name = "forget_me_nots_backend"
+version = "0.1.0"
+edition = "2024"
+authors = ["Patrick A Klenk pk1030@pm.me"]
+description = "An eCommerce backend web application written in Rust using Actix-web."
+
+[dependencies]
+# Actix-web is our web framework for building REST APIs
+actix-web = "4.0"
+
+# Actix runtime to power async execution (Actix-web uses Tokio under the hood)
+actix-rt = "2.7"
+
+# Serde for serializing/deserializing JSON (and other formats)
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# SQLx for asynchronous database interactions with PostgreSQL.
+# The features below enable the Postgres driver, macros for compile-time query checking,
+# and use of the native TLS runtime.
+sqlx = { version = "0.8.3", features = ["runtime-tokio-native-tls", "postgres", "macros"] }
+
+# Dotenv helps load environment variables from a .env file, useful for configuration (like DATABASE_URL)
+dotenv = "0.15"
+
+# Logging dependencies: env_logger initializes logging from environment variables,
+# and log provides the logging facade.
+env_logger = "0.11.6"
+log = "0.4"
